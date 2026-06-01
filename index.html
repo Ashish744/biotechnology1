@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Advanced Biotechnology Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-placeholder">
+                <img src="logo-stackly (1).png" alt="Stackly" class="site-logo">
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><button class="nav-signup" id="navSignupBtn">Sign Up</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Signup Modal -->
+    <!-- Modern Signup Modal -->
+    <div id="signupModal" class="modern-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="signup-container">
+                <!-- Left Section - Branding -->
+                <div class="signup-brand-section">
+                    <div class="brand-content">
+                        <div class="brand-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h1>Stackly</h1>
+                        <p>Advanced Biotechnology Solutions</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>AI-Powered Analysis</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Real-time Collaboration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Section - Form -->
+                <div class="signup-form-section">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                        <p>Join our biotech community today</p>
+                    </div>
+
+                    <form class="modern-signup-form" id="signupForm">
+                        <!-- Row 1: Name -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fname">
+                                    <i class="fas fa-user"></i>
+                                    Full Name
+                                </label>
+                                <input type="text" id="fname" name="fname" placeholder="Dr. John Doe" required>
+                                <span class="form-error" id="fname-error"></span>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Company & Role -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">
+                                    <i class="fas fa-building"></i>
+                                    Company Name
+                                </label>
+                                <input type="text" id="company" name="company" placeholder="BioTech Inc." required>
+                                <span class="form-error" id="company-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">
+                                    <i class="fas fa-briefcase"></i>
+                                    Role
+                                </label>
+                                <select id="role" name="role" required>
+                                    <option value="">Select Role</option>
+                                    <option value="researcher">Researcher</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="analyst">Analyst</option>
+                                    <option value="director">Director</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Email & Phone -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="semail">
+                                    <i class="fas fa-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="semail" name="semail" placeholder="john@biotech.com" required>
+                                <span class="form-error" id="semail-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i>
+                                    Phone
+                                </label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+
+                        <!-- Row 4: Password -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="spassword">
+                                    <i class="fas fa-lock"></i>
+                                    Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="spassword" name="spassword" placeholder="At least 8 characters" required>
+                                    <button type="button" class="toggle-password" id="togglePassword1">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="form-error" id="spassword-error"></span>
+                            </div>
+                        </div>
+
+                        <!-- Row 5: Confirm Password -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cpassword">
+                                    <i class="fas fa-lock"></i>
+                                    Confirm Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password" required>
+                                    <button type="button" class="toggle-password" id="togglePassword2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="form-error" id="cpassword-error"></span>
+                            </div>
+                        </div>
+
+                        <!-- Checkbox: Terms -->
+                        <div class="checkbox-group">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span class="checkbox-mark"></span>
+                                <span class="checkbox-text">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn">
+                            <span>Create Account</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+
+                        <!-- Sign In Link -->
+                        <p class="signin-link">Already have an account? <a href="#" class="switch-to-signin">Sign In Here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signin Modal -->
+    <div id="signinModal" class="modern-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeSigninModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="signup-container">
+                <div class="signup-brand-section">
+                    <div class="brand-content">
+                        <div class="brand-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h1>Stackly</h1>
+                        <p>Secure access to your biotechnology dashboard</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Fast Secure Login</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Encrypted Data Access</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Real-time Research Insight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="signup-form-section">
+                    <div class="form-header">
+                        <h2>Sign In</h2>
+                        <p>Welcome back! Log in to continue.</p>
+                    </div>
+                    <form class="modern-signup-form" id="signinForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signinEmail">
+                                    <i class="fas fa-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="signinEmail" name="signinEmail" placeholder="john@biotech.com" required>
+                                <span class="form-error" id="signinEmail-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signinPassword">
+                                    <i class="fas fa-lock"></i>
+                                    Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="signinPassword" name="signinPassword" placeholder="Your password" required>
+                                    <button type="button" class="toggle-password" id="toggleSigninPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="form-error" id="signinPassword-error"></span>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="signin-link">Don't have an account? <a href="#" class="switch-to-signup">Create one</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Canvas for Animated Background Video -->
+        <canvas id="heroCanvas" class="hero-video"></canvas>
+        
+        <!-- Video Overlay -->
+        <div class="video-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Advanced Biotechnology Solutions</h1>
+            <p class="hero-subtitle">Innovating Tomorrow's <span id="changingWord">Healthcare</span> Today</p>
+            <a href="404.html" class="cta-button">Learn More</a>
+        </div>
+        <div class="hero-image-placeholder">
+            <div class="placeholder-box">
+                <img id="bio_home1" src="herosection.webp" alt="Hero Section Image" class="placeholder-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Cutting-edge biotechnology services for your needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-flask-vial"></i>
+                </div>
+                <h3>Genetic Research</h3>
+                <p>Advanced genetic analysis and research using latest technologies</p>
+                <div class="service-image-placeholder">
+                    <img src="2ndimg.wep.webp" alt="Genetic research" class="placeholder-image">
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-virus"></i>
+                </div>
+                <h3>Cell Therapy</h3>
+                <p>Innovative cell therapy treatments for various conditions</p>
+                <div class="service-image-placeholder">
+                    <img src="3rdimg.webp" alt="Cell therapy" class="placeholder-image">
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Drug Development</h3>
+                <p>Comprehensive drug development and clinical trials</p>
+                <div class="service-image-placeholder">
+                    <img src="4thimg.webp" alt="Drug development" class="placeholder-image">
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3>Molecular Testing</h3>
+                <p>Precise molecular diagnostics and testing services</p>
+                <div class="service-image-placeholder">
+                    <img src="5thimg.webp" alt="Molecular testing" class="placeholder-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image-placeholder">
+                <img src="1stimg.wep.webp" alt="About BioTech" class="placeholder-image">
+            </div>
+            <div class="about-content">
+                <h2>About BioTech</h2>
+                <p>We are committed to advancing biotechnology research and development. Our team of experts works tirelessly to bring innovative solutions to the healthcare industry.</p>
+                <ul class="about-list">
+                    <li><i class="fas fa-check"></i> 20+ Years of Experience</li>
+                    <li><i class="fas fa-check"></i> State-of-the-art Facilities</li>
+                    <li><i class="fas fa-check"></i> Expert Research Team</li>
+                    <li><i class="fas fa-check"></i> ISO Certified Standards</li>
+                </ul>
+                <a href="404.html" class="cta-button secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research">
+        <div class="section-header">
+            <h2>Recent Research</h2>
+            <p>Exploring the frontiers of biotechnology</p>
+        </div>
+        <div class="research-grid">
+            <div class="research-card">
+                <div class="research-image-placeholder">
+                    <img src="7thimg.webp" alt="Gene therapy breakthrough" class="placeholder-image">
+                </div>
+                <h3>Gene Therapy Breakthrough</h3>
+                <p>Exploring new possibilities in genetic disease treatment through innovative gene therapy approaches.</p>
+            </div>
+            <div class="research-card">
+                <div class="research-image-placeholder">
+                    <img src="8thimg.webp" alt="Biomarker discovery" class="placeholder-image">
+                </div>
+                <h3>Biomarker Discovery</h3>
+                <p>Identifying new biomarkers for early disease detection and personalized medicine development.</p>
+            </div>
+            <div class="research-card">
+                <div class="research-image-placeholder">
+                    <img src="9thimg.webp" alt="Immunotherapy advances" class="placeholder-image">
+                </div>
+                <h3>Immunotherapy Advances</h3>
+                <p>Developing next-generation immunotherapy treatments for cancer and autoimmune diseases.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number" data-target="250">0</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">Medical Professionals</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="95">0</div>
+                <div class="stat-label">Success Rate %</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Global Partners</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="section-header">
+            <h2>Our Process</h2>
+            <p>How we drive biotechnology innovation</p>
+        </div>
+        <div class="process-container">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Ideation</h3>
+                <p>We analyze market needs and conceptualize innovative solutions</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <div class="step-icon"><i class="fas fa-flask-vial"></i></div>
+                <h3>Research</h3>
+                <p>Extensive laboratory research and feasibility studies</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <div class="step-icon"><i class="fas fa-microscope"></i></div>
+                <h3>Development</h3>
+                <p>Prototype creation and iterative development cycles</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <div class="step-icon"><i class="fas fa-vial"></i></div>
+                <h3>Testing</h3>
+                <p>Rigorous testing and quality assurance protocols</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">05</div>
+                <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>Validation</h3>
+                <p>Clinical validation and regulatory approval</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">06</div>
+                <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Launch</h3>
+                <p>Market launch and ongoing support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="section-header">
+            <h2>Our Expert Team</h2>
+            <p>Dedicated professionals driving innovation in biotechnology</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image-placeholder">
+                    <img src="doctor1.webp" alt="Dr. Sarah Johnson" class="team-profile-image">
+                </div>
+                <h3>Dr. Sarah Johnson</h3>
+                <p class="position">Chief Scientific Officer</p>
+                <p class="bio">20+ years of experience in genetic research and innovation</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image-placeholder">
+                    <img src="doctor2.webp" alt="Prof. Michael Chen" class="team-profile-image">
+                </div>
+                <h3>Prof. Michael Chen</h3>
+                <p class="position">Head of Research</p>
+                <p class="bio">Leading biotechnology researcher with multiple patents</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image-placeholder">
+                    <img src="doctor3.webp" alt="Dr. Emily Rodriguez" class="team-profile-image">
+                </div>
+                <h3>Dr. Emily Rodriguez</h3>
+                <p class="position">Clinical Director</p>
+                <p class="bio">Expert in clinical trials and regulatory compliance</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image-placeholder">
+                    <img src="doctor4.webp" alt="Dr. James Wilson" class="team-profile-image">
+                </div>
+                <h3>Dr. James Wilson</h3>
+                <p class="position">Head of Operations</p>
+                <p class="bio">Specialist in biotech operations and project management</p>
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>What Our Clients Say</h2>
+            <p>Success stories from our valued partners</p>
+        </div>
+        <div class="testimonial-carousel">
+            <div class="carousel-container">
+                <div class="testimonial-card-carousel">
+                    <div class="testimonial-image-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Video</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"BioTech's innovative approach transformed our research capabilities. Their team's expertise and dedication are unmatched in the industry."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div>
+                                <h4>John Smith</h4>
+                                <p>Research Director, MedScience Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card-carousel">
+                    <div class="testimonial-image-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Video</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The results exceeded our expectations. Their cutting-edge technology accelerated our product development by 40% and improved our market position."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Lisa Anderson</h4>
+                                <p>CEO, HealthTech Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card-carousel">
+                    <div class="testimonial-image-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Video</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Outstanding partnership! Their scientists and support team made our clinical trials seamless and successful. Highly recommended for any biotech venture."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Dr. Robert Taylor</h4>
+                                <p>Medical Director, Global Health Partners</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-nav prev" id="prevTestimonial">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next" id="nextTestimonial">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="carousel-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates Section -->
+    <section class="news">
+        <div class="section-header">
+            <h2>Latest News & Updates</h2>
+            <p>Stay informed about our latest breakthroughs</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="news-date"><i class="fas fa-calendar"></i> May 25, 2026</div>
+                <h3>Breakthrough in Gene Therapy Treatment</h3>
+                <p>Our team announces successful completion of Phase 2 clinical trials for our groundbreaking gene therapy treatment.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-card">
+                <div class="news-image-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="news-date"><i class="fas fa-calendar"></i> May 20, 2026</div>
+                <h3>Partnership with International Research Institute</h3>
+                <p>BioTech partners with leading international research institute to accelerate biomarker discovery projects.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-card">
+                <div class="news-image-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="news-date"><i class="fas fa-calendar"></i> May 15, 2026</div>
+                <h3>Awarded Best Innovation in Biotechnology</h3>
+                <p>Recognized with prestigious award for our innovative approaches to cellular therapy and personalized medicine.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-card">
+                <div class="news-image-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="news-date"><i class="fas fa-calendar"></i> May 10, 2026</div>
+                <h3>New Laboratory Facility Opens</h3>
+                <p>State-of-the-art research facility inaugurated with advanced equipment for molecular diagnostics.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-card">
+                <div class="news-image-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="news-date"><i class="fas fa-calendar"></i> May 05, 2026</div>
+                <h3>FDA Approval for New Drug Candidate</h3>
+                <p>Our latest drug candidate receives FDA approval for human trials after successful preclinical studies.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-card">
+                <div class="news-image-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="news-date"><i class="fas fa-calendar"></i> April 30, 2026</div>
+                <h3>Speaking at International Biotech Conference</h3>
+                <p>Our scientists presenting latest research findings at the Global Biotechnology Summit 2026.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Common questions about our services and solutions</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What makes BioTech different from other biotech companies?</h3>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We combine cutting-edge technology with a dedicated team of experts, ensuring innovative solutions backed by rigorous scientific research and regulatory compliance.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does a typical research project take?</h3>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Timeline varies based on project scope, but typically ranges from 12-36 months for comprehensive research and development with regulatory approval.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What certifications and standards do you maintain?</h3>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We maintain ISO 9001, ISO 13485, and GLP certifications. Our facilities comply with FDA regulations and international quality standards.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can you work on proprietary/confidential projects?</h3>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we maintain strict confidentiality protocols and can execute comprehensive NDAs for all proprietary research and development work.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What are your pricing models?</h3>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer flexible pricing models including project-based, time-and-materials, and outcome-based arrangements tailored to your specific needs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do you ensure data security and intellectual property protection?</h3>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We employ industry-leading security measures, encrypted databases, and have dedicated IP protection protocols overseen by legal experts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Healthcare?</h2>
+            <p>Partner with us for innovative biotechnology solutions</p>
+            <a href="404.html" class="cta-button large">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our team</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>123 Science Street, Research City, RC 12345</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@biotech.com</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Background Animation -->
+        <div class="footer-bg-animation"></div>
+        
+        <div class="footer-container">
+            <!-- Footer Top Section -->
+            <div class="footer-top">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="#home">
+                            <img src="logo-stackly (1).png" alt="Stackly" class="footer-site-logo">
+                        </a>
+                    </div>
+                    <p class="footer-description">
+                        Advanced biotechnology solutions driving innovation in healthcare and research. 
+                        Empowering scientists and researchers worldwide with cutting-edge technology.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="404.html" class="social-btn" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="404.html" class="social-btn" title="Twitter">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="404.html" class="social-btn" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="404.html" class="social-btn" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                         
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Genetic Analysis</a></li>
+                        <li><a href="404.html">Data Processing</a></li>
+                        <li><a href="404.html">Lab Testing</a></li>
+                        <li><a href="404.html">Consultation</a></li>
+                        <li><a href="404.html">Research Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Documentation</a></li>
+                        <li><a href="404.html">Blog</a></li>
+                        <li><a href="404.html">FAQs</a></li>
+                        <li><a href="404.html">Support Center</a></li>
+                        <li><a href="404.html">Knowledge Base</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p class="newsletter-desc">Subscribe to get the latest updates and research insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    <p class="newsletter-notice">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 Stackly. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                        <span>•</span>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+                <div class="footer-bottom-right">
+                    <div class="footer-contact">
+                        <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+                        <span><i class="fas fa-envelope"></i> info@stackly.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button class="scroll-to-top" id="scrollToTop" title="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
