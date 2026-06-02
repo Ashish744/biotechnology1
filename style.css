@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 2rem;
+    padding: 0.85rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
@@ -107,15 +107,24 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
 }
 
 .nav-link {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 500;
     position: relative;
     transition: var(--transition);
-    padding: 0.5rem 0;
+    padding: 0.7rem 0;
+    line-height: 1;
 }
 
 .nav-link::after {
@@ -1398,6 +1407,16 @@ body {
 /* Smooth Scroll */
 html {
     scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+    section {
+        scroll-margin-top: 110px;
+    }
 }
 
 .scroll-progress-bar {
