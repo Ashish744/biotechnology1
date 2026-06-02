@@ -62,13 +62,23 @@ if (scrollToTopBtn) {
 // Smooth Scroll for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+
+        if (!href || href === '#') {
+            return;
+        }
+
+        try {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        } catch (err) {
+            console.warn('Invalid anchor selector:', href, err);
         }
     });
 });
@@ -138,18 +148,60 @@ ctaButtons.forEach(button => {
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
+    const nameInput = contactForm.querySelector('input[type="text"]');
+    const emailInput = contactForm.querySelector('input[type="email"]');
+    const messageInput = contactForm.querySelector('textarea');
+
+    // Validate name - only letters and spaces
+    if (nameInput) {
+        nameInput.addEventListener('input', function() {
+            const value = this.value;
+            if (!/^[a-zA-Z\s]*$/.test(value)) {
+                this.setCustomValidity('Name must contain only letters and spaces');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    }
+
+    // Validate email format
+    if (emailInput) {
+        emailInput.addEventListener('input', function() {
+            const value = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (value && !emailRegex.test(value)) {
+                this.setCustomValidity('Please enter a valid email address');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    }
+
+    // Validate message - no pure numbers
+    if (messageInput) {
+        messageInput.addEventListener('input', function() {
+            const value = this.value.trim();
+            if (value && /^\d+$/.test(value)) {
+                this.setCustomValidity('Message cannot contain only numbers');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    }
+
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Show success message
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
-        
-        // Add animation
-        this.style.opacity = '0.5';
-        setTimeout(() => {
-            this.style.opacity = '1';
-        }, 200);
+
+        // Check validity
+        if (!this.checkValidity()) {
+            this.reportValidity();
+            return;
+        }
+
+        if (this.checkValidity()) {
+            window.location.href = '404.html';
+            return;
+        }
     });
 }
 
@@ -284,18 +336,6 @@ faqItems.forEach(item => {
         });
         // Toggle current item
         item.classList.toggle('active');
-    });
-});
-
-// News Card Read More Links
-const readMoreLinks = document.querySelectorAll('.read-more');
-
-readMoreLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Show modal or navigate to full article
-        const title = link.closest('.news-card').querySelector('h3').textContent;
-        alert('Article: ' + title + '\n\nFull article content would load here.');
     });
 });
 
